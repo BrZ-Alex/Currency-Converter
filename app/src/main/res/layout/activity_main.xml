@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <ListView
+        android:id="@+id/field_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/colorPrimaryDark"
+        android:choiceMode="singleChoice"
+        android:fastScrollEnabled="false"
+        android:headerDividersEnabled="false"
+        android:listSelector="@color/colorPrimary" />
+
+    <GridView
+        android:id="@+id/keyboard_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fastScrollEnabled="false"
+        android:isScrollContainer="false"
+        android:numColumns="3"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+    </GridView>
+</LinearLayout>
