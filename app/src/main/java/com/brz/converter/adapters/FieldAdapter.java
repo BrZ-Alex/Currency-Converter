@@ -84,9 +84,9 @@ public class FieldAdapter extends ArrayAdapter<String> {
                         Currency currencyOld = selectedSpinnerItem(selectedPosition);
                         double result = (Double.parseDouble(String.valueOf(value))*currencyOld.getValue()*currencyNew.getNominal())/(currencyOld.getNominal()*currencyNew.getValue());
                         String res = String.valueOf(result);
-                        if(res.length()-res.indexOf('.')>4){
+                        /*if(res.length()-res.indexOf('.')>4){
                             res = res.substring(0, res.indexOf('.')+4);
-                        }
+                        }*/
                         if(isMain) {
                             textView.setText(res);
                         }else{
