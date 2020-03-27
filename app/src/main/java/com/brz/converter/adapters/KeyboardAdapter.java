@@ -1,6 +1,11 @@
 package com.brz.converter.adapters;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -12,7 +17,6 @@ import com.brz.converter.R;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 
 public class KeyboardAdapter extends ArrayAdapter<String> {
 
@@ -35,10 +39,13 @@ public class KeyboardAdapter extends ArrayAdapter<String> {
         keyboardItem.setTextColor(getContext().getResources().getColor(R.color.colorPrimaryDark));
 
         if (getContext().getResources().getStringArray(R.array.keyboard)[position].equalsIgnoreCase("DEL")){
-            //add clear icon
-            keyboardItem.setText(getItem(position));
+            Bitmap bitmap = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.ic_del);
+            bitmap = Bitmap.createScaledBitmap(bitmap, parent.getWidth()/3, parent.getHeight()/4, false);
+            Drawable drawable = new BitmapDrawable(getContext().getResources(), bitmap);
+            keyboardItem.setBackground(drawable);
 
         }else {
+            keyboardItem.setBackgroundColor(Color.WHITE);
             keyboardItem.setText(getItem(position));
         }
         return keyboardItem;

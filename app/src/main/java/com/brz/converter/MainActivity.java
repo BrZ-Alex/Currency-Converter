@@ -100,7 +100,11 @@ public class MainActivity extends AppCompatActivity {
                 String tmp = String.valueOf(textView.getText());
                 if(buttonValue.equalsIgnoreCase("del")){
                     if(tmp.length()>0) {
-                        tmp = tmp.substring(0, tmp.length() - 1);
+                        if(tmp.endsWith(".")&&tmp.charAt(0)=='0'){
+                            tmp="";
+                        }else {
+                            tmp = tmp.substring(0, tmp.length() - 1);
+                        }
                     }else {
                         tmp="";
                     }
@@ -116,6 +120,9 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         if ((tmp.contains(".") && tmp.length() < 15) || (tmp.length() < 9 )) {
                             tmp = tmp + buttonValue;
+                            if(tmp.length()==1 && buttonValue.equals("0")){
+                                tmp+=".";
+                            }
                         } else {
                             textView.startAnimation(shakeAnimation);
                         }
